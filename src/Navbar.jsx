@@ -25,7 +25,7 @@ function Navbar({ visible }) {
         <a href="/">Home</a>
         <a href="#">Services</a>
         <a href="#">About</a>
-        <a href="/Contact">Contact</a>
+        <a href="/contact">Contact</a>
       </div>
     </div>
   );
