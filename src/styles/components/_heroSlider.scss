@@ -35,7 +35,7 @@
 
     .slide-content {
       text-align: center;
-      color: white;
+      color: rgba(255, 255, 255, 0.996);
       position: relative;
       z-index: 1;
       .slide-title,
@@ -43,7 +43,7 @@
       .slide-button {
         opacity: 0;
         transform: translateX(-30px);
-        transition: all 1s ease;
+        transition: all 2.5s ease;
 
         &.animate {
           opacity: 1;
@@ -83,7 +83,7 @@
         color: white;
         border-radius: rem(8);
         text-decoration: none;
-        transition: background-color 0.3s ease;
+        // transition: background-color 0.3s ease;
 
         &:hover {
           background-color: rgba(1, 1, 255, 0.683);
@@ -125,6 +125,9 @@
 
     animation: bounce-left-right 1.5s ease-in-out infinite;
     animation-direction: alternate;
+    &:hover {
+      color: rgb(1, 1, 255, 0.683);
+    }
 
     @media (min-width: rem(600)) {
       font-size: rem(150);

@@ -80,21 +80,25 @@ function HeroSlider() {
     return () => clearTimeout(timeout);
   }, []);
 
+  // useEffect(() => {
+  //   const isLoopedBack =
+  //     previousIndex.current === images.length - 1 && index === 0;
+
+  //   if (isLoopedBack) {
+  //     const resetTimeout = setTimeout(() => {
+  //       setAnimatedSlides([0]);
+  //     }, 600);
+  //     return () => clearTimeout(resetTimeout);
+  //   }
+
+  //   setAnimatedSlides((prev) =>
+  //     prev.includes(index) ? prev : [...prev, index]
+  //   );
+
+  //   previousIndex.current = index;
+  // }, [index]);
   useEffect(() => {
-    const isLoopedBack =
-      previousIndex.current === images.length - 1 && index === 0;
-
-    if (isLoopedBack) {
-      const resetTimeout = setTimeout(() => {
-        setAnimatedSlides([0]);
-      }, 600);
-      return () => clearTimeout(resetTimeout);
-    }
-
-    setAnimatedSlides((prev) =>
-      prev.includes(index) ? prev : [...prev, index]
-    );
-
+    setAnimatedSlides([index]); // Only animate current slide
     previousIndex.current = index;
   }, [index]);
 
