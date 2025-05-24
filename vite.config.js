@@ -32,7 +32,7 @@ export default defineConfig(({ command }) => ({
   base: '/',
   plugins: [react()],
   build: {
-    outDir: 'docs',
+    // outDir: 'docs',
     emptyOutDir: true,
   },
 }))
