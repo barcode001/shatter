@@ -29,10 +29,10 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig(({ command }) => ({
   // base:'/shatter/',
-  base: '/',
+  base: '/shatter/',
   plugins: [react()],
   build: {
-    // outDir: 'docs',
+    outDir: 'docs',
     emptyOutDir: true,
   },
 }))
