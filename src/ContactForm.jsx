@@ -5,6 +5,7 @@ import { issues } from "./data/issues";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 function ContactForm() {
   const [showSuccess, setShowSuccess] = useState(false);
   const navigate = useNavigate();
@@ -98,8 +99,10 @@ function ContactForm() {
 
     //   return () => clearTimeout(timeout);
     // }, []);
-
-    window.location.href = "/";
+    setTimeout(() => {
+      setShowSuccess(false);
+      window.location.href = "/";
+    }, 3000);
   };
 
   return (

@@ -12,18 +12,27 @@
 // })
 
 
+// import { defineConfig } from 'vite';
+// import react from '@vitejs/plugin-react';
+
+// export default defineConfig(({ command }) => ({
+//   // base: command === 'build' ? '/' : '/shatter/', // ✅ only set /shatter/ for production
+//    base: '/shatter/', // 👈 IMPORTANT
+//   plugins: [react()],
+//   build: {
+//     outDir: 'docs',
+//   },
+// }));
+
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig(({ command, mode }) => {
-  return {
-    // Dev server: use root (‘/’)
-    // Production build: prefix asset URLs with '/shatter/'
-    base: command === 'serve' ? '/' : '/shatter/',
-    plugins: [react()],
-    server: {
-      // Ensures client-side routing works in dev
-      historyApiFallback: true,
-    },
-  }
-})
+export default defineConfig(({ command }) => ({
+  // base:'/shatter/',
+  base: '/',
+  plugins: [react()],
+  build: {
+    outDir: 'docs',
+    emptyOutDir: true,
+  },
+}))

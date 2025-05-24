@@ -1,10 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import { useSwipeable } from "react-swipeable";
 import { Link } from "react-router-dom";
-
+import hero1 from "./assets/images/iphonehero.webp";
+import hero2 from "./assets/images/ipadhero1.jpg";
+import hero3 from "./assets/images/laptopHero.jpg";
+import hero4 from "./assets/images/gameshero.jpg";
 const images = [
   {
-    className: "hero1",
+    img: hero1,
+    className: "iphone-slide",
     alt: "iPhone Repair",
     title: "Fast Phone Repair in Houston — iPhone, iPad, Laptop & More",
     subtitle: "Same-day repairs backed by a warranty",
@@ -13,7 +17,8 @@ const images = [
     learnMoreLink: "/iphone-repair",
   },
   {
-    className: "hero2",
+    img: hero2,
+    className: "ipad-slide",
     alt: "iPad Repair",
     title: "Expert iPad Screen Fixes",
     subtitle: "Cracked screen? We’ve got you covered.",
@@ -22,7 +27,8 @@ const images = [
     learnMoreLink: "/ipad-repair",
   },
   {
-    className: "hero3",
+    img: hero3,
+    className: "laptop-slide",
     alt: "Laptop Repair",
     title: "Laptop Repair Experts",
     subtitle: "Keyboard, screen, battery — we fix it all.",
@@ -31,7 +37,8 @@ const images = [
     learnMoreLink: "/laptop-repair",
   },
   {
-    className: "hero4",
+    img: hero4,
+    className: "console-slide",
     alt: "Gaming Console Repair",
     title: "Console Issues? We Fix That.",
     subtitle: "PlayStation, Xbox, Switch — repairs done right.",
@@ -65,15 +72,15 @@ function HeroSlider() {
     setIndex(i);
   };
 
-  useEffect(() => {
-    images.forEach((img) => {
-      const preload = new Image();
-      preload.src = new URL(
-        `/src/assets/images/${img.className}.jpg`,
-        import.meta.url
-      ).href;
-    });
-  }, []);
+  // useEffect(() => {
+  //   images.forEach((img) => {
+  //     const preload = new Image();
+  //     preload.src = new URL(
+  //       `/src/assets/images/${img.className}.jpg`,
+  //       import.meta.url
+  //     ).href;
+  //   });
+  // }, []);
 
   useEffect(() => {
     const timeout = setTimeout(() => setLoaded(true), 50);
@@ -126,8 +133,14 @@ function HeroSlider() {
         style={{ transform: `translateX(-${index * 100}%)` }}
       >
         {images.map((img, i) => (
-          <div key={i} loading="lazy" className={`slide ${img.className}`}>
-            <div className="bg-blur" />
+          <div key={i} className={`slide ${img.className}`}>
+            <img
+              src={img.img}
+              alt={img.alt}
+              loading="lazy"
+              className="slide-img"
+            />
+            {/* <div className="bg-blur" /> */}
             <div className="overlay" />
             <div className="slide-content">
               {i === 0 ? (

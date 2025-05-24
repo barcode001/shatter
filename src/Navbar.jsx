@@ -9,7 +9,7 @@ function Navbar({ visible }) {
 
       <div className="nav-header">
         <Link to="/" className="logo">
-          <img src={shatterlogo} alt="Shatter Repairs" className="nav-title" />
+          <img src={shatterlogo} alt="Shatterlogo" className="nav-title" />
         </Link>
       </div>
 
@@ -22,10 +22,10 @@ function Navbar({ visible }) {
       </div>
 
       <div className="nav-links">
-        <a href="/">Home</a>
-        <a href="#">Services</a>
-        <a href="#">About</a>
-        <a href="/contact">Contact</a>
+        <Link to="/">Home</Link>
+        <Link to="/services">Services</Link>
+        <Link to="/about">About</Link>
+        <Link to="/shatter/contact">Contact</Link>
       </div>
     </div>
   );
