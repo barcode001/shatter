@@ -25,7 +25,7 @@ function Navbar({ visible }) {
         <Link to="/">Home</Link>
         <Link to="/services">Services</Link>
         <Link to="/about">About</Link>
-        <Link to="/shatter/contact">Contact</Link>
+        <Link to="/contact">Contact</Link>
       </div>
     </div>
   );
