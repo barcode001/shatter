@@ -2,10 +2,13 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  base: '/shatter/', // ✅ this must match your GitHub repo name
+  base: '/shatter/',  // ✅ Required for GitHub Pages
   plugins: [react()],
   build: {
-    outDir: 'docs', // ✅ this must match where you’re deploying from
+    outDir: 'docs',
     emptyOutDir: true,
-  },
+    rollupOptions: {
+      input: 'index.html' // ✅ This tells Vite where to inject
+    }
+  }
 });
