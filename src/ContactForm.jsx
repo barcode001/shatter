@@ -2,9 +2,8 @@
 import React, { useState } from "react";
 import { categories, brands, models } from "./data/repairOptions";
 import { issues } from "./data/issues";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
 
 function ContactForm() {
   const [showSuccess, setShowSuccess] = useState(false);
@@ -68,7 +67,7 @@ function ContactForm() {
 
     console.log("📩 Submitted:", submission);
     setShowSuccess(true);
-    setTimeout(() => setShowSuccess(false), 3000);
+    setTimeout(() => setShowSuccess(false), 30000);
 
     //  Reset the form after submit
     setFormData({
@@ -101,8 +100,8 @@ function ContactForm() {
     // }, []);
     setTimeout(() => {
       setShowSuccess(false);
-      window.location.href = "/";
-    }, 3000);
+      window.location.href = "/shatter/";
+    }, 300000);
   };
 
   return (
@@ -295,7 +294,9 @@ function ContactForm() {
         <div className="form-toast" role="status" aria-live="polite">
           ✅ Thanks! Your request was submitted.
           <br />
-          <button onClick={() => (window.location.href = "/")}>OK</button>
+          <button onClick={() => (window.location.href = "/shatter/")}>
+            OK
+          </button>
         </div>
       )}
     </div>
