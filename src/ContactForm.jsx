@@ -294,7 +294,11 @@ function ContactForm() {
         <div className="form-toast" role="status" aria-live="polite">
           ✅ Thanks! Your request was submitted.
           <br />
-          <button onClick={() => (window.location.href = "/shatter/")}>
+          <button
+            onClick={() =>
+              (window.location.href = "https://barcode001.github.io/shatter/")
+            }
+          >
             OK
           </button>
         </div>

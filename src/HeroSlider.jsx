@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import { useSwipeable } from "react-swipeable";
 import { Link } from "react-router-dom";
 import hero1 from "./assets/images/iphonehero.webp";
-import hero2 from "./assets/images/ipadhero1.jpg";
-import hero3 from "./assets/images/laptopHero.jpg";
-import hero4 from "./assets/images/gameshero.jpg";
+import hero2 from "./assets/images/ipadhero1.webp";
+import hero3 from "./assets/images/laptopHero.webp";
+import hero4 from "./assets/images/gameshero.webp";
 const images = [
   {
     img: hero1,
@@ -140,8 +140,7 @@ function HeroSlider() {
               loading="lazy"
               className="slide-img"
             />
-            {/* <div className="bg-blur" /> */}
-            <div className="overlay" />
+
             <div className="slide-content">
               {i === 0 ? (
                 <h1
