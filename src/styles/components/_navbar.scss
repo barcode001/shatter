@@ -32,7 +32,7 @@ body {
   justify-content: space-between;
   align-items: center;
   transition: transform 0.5s ease;
-  z-index: 100;
+  z-index: 10000;
 
   &.hidden {
     transform: translateY(-100%);
@@ -162,10 +162,12 @@ body {
   //   center;
   background-size: contain; // scales the image to fit
   width: 100px;
+  height: auto;
 }
 .logo {
   display: inline-block;
   align-items: center;
   text-decoration: none;
   padding: 8px;
+  background-repeat: no-repeat;
 }

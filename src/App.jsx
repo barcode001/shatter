@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import HeroSlider from "./HeroSlider";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import ContactPage from "./ContactPage"; // create this page
 import "./styles/main.scss";
 import { useState, useEffect } from "react";
@@ -30,6 +31,7 @@ function App() {
         />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

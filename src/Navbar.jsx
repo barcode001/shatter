@@ -9,7 +9,12 @@ function Navbar({ visible }) {
 
       <div className="nav-header">
         <Link to="/" className="logo">
-          <img src={shatterlogo} alt="Shatterlogo" className="nav-title" />
+          <img
+            src={shatterlogo}
+            alt="Shatterlogo"
+            loading="lazy"
+            className="nav-title"
+          />
         </Link>
       </div>
 
