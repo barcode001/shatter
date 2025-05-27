@@ -1,13 +1,21 @@
 // src/pages/IphoneRepair.jsx
 import { Link } from "react-router-dom";
-import iphoneService from "../assets/images/iphonService.png";
+import iphoneService from "../assets/images/iphonService.webp";
 // import "./servicePage.scss"; // optional per-page styles
 
 export default function IphoneRepair() {
   return (
     <section className="service-page">
       <header className="service-header">
-        <img src={iphoneService} loading="lazy" alt="Cracked iPhone screen" />
+        <div className="floating-wrapper">
+          <img
+            src={iphoneService}
+            loading="lazy"
+            alt="Cracked iPhone screen"
+            className="loop-hover"
+          />
+        </div>
+
         <h1>Fast iPhone Repair in Houston</h1>
         <p className="subtitle">
           Broken screen? Dead battery? We’ve got you covered – usually{" "}

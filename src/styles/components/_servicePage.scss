@@ -97,3 +97,40 @@ li {
     font-weight: bold;
   }
 }
+
+.floating-wrapper {
+  position: relative;
+  display: inline-block;
+  animation: floatUpDown 3s ease-in-out infinite;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 10px;
+    background: rgba(132, 131, 131, 0.481);
+    filter: blur(4px);
+    border-radius: 50%;
+    z-index: 0;
+  }
+}
+
+.loop-hover {
+  margin-top: rem(50);
+  position: relative;
+  z-index: 1;
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
