@@ -4,7 +4,7 @@ import facebook from "./assets/images/facebook.png";
 import tiktok from "./assets/images/tiktok.png";
 function Footer() {
   return (
-    <>
+    <div className="container">
       <footer id="footer">
         <div className="col col1">
           <p className="artist">Made by Next-WebSite</p>
@@ -51,7 +51,7 @@ function Footer() {
           </article>
         </article>
       </div>
-    </>
+    </div>
   );
 }
 

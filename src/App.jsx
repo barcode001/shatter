@@ -6,6 +6,8 @@ import ContactPage from "./ContactPage"; // create this page
 import "./styles/main.scss";
 import { useState, useEffect } from "react";
 import Services from "./Services";
+import IphoneRepair from "./pages/IphoneRepair";
+import ScrollToTop from "./components/ScrollToTop";
 function App() {
   const [showNav, setShowNav] = useState(false);
 
@@ -17,20 +19,32 @@ function App() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="layout">
       <Navbar visible={showNav} />
-      <Routes>
+      <ScrollToTop />
+      <main className="main-content">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <HeroSlider />
+                <Services />
+              </>
+            }
+          />
+          <Route path="/services/iphone-repair" element={<IphoneRepair />} />
+          {/* <Route path="/services/android-repair" element={<AndroidRepair />} />
+        <Route path="/services/ipad-repair" element={<IpadRepair />} />
+        <Route path="/services/laptop-repair" element={<LaptopRepair />} />
+        <Route path="/services/console-repair" element={<ConsoleRepair />} />
         <Route
-          path="/"
-          element={
-            <>
-              <HeroSlider />
-              <Services />
-            </>
-          }
-        />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
+          path="/services/other-electronics"
+          element={<OtherElectronics />}
+        /> */}
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </main>
       <Footer />
     </div>
   );

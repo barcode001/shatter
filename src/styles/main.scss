@@ -16,6 +16,7 @@
 @use "./components/footer";
 @use "./components/heroSlider";
 @use "./components/contact-form";
+@use "./components/servicePage";
 // main.scss
 
 $primary-color: #000000;
@@ -23,12 +24,16 @@ $primary-color: #000000;
 body {
   // background: $primary-color;
   color: rgb(255, 255, 255);
-  font-family: Arial, sans-serif;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  height: 100vh;
 }
 
-.container {
-  width: 100%;
-  // max-width: 1200px;
-  margin: 0 auto;
-  padding: 0; // for spacing on mobile
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // fills full screen
+}
+
+.main-content {
+  flex: 1; // pushes footer to the bottom
 }
