@@ -7,7 +7,7 @@ function Footer() {
     <div className="container">
       <footer id="footer">
         <div className="col col1">
-          <p className="artist">Made by Next-WebSite</p>
+          <p className="artist">Designed by EdenCode</p>
           <div className="social">
             <a href="#" target="_blank" className="link">
               <img src={instagram} loading="lazy" alt="Instagram" />

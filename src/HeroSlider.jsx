@@ -168,20 +168,10 @@ function HeroSlider() {
                 {img.subtitle}
               </p>
 
-              <Link
-                to={img.buttonLink}
-                className={`slide-button ${
-                  loaded && animatedSlides.includes(i) ? "animate" : ""
-                }`}
-              >
+              <Link to={img.buttonLink} className="slide-button">
                 {img.buttonText}
               </Link>
-              <a
-                href="tel:8328692809"
-                className={`call-now-btn ${
-                  loaded && animatedSlides.includes(i) ? "animate" : ""
-                }`}
-              >
+              <a href="tel:8328692809" className="call-now-btn">
                 📞 Call Now
               </a>
               <Link

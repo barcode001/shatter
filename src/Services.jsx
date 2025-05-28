@@ -37,7 +37,7 @@ function Services() {
     });
 
     return () => observer.disconnect();
-  }, [visible]);
+  }, []);
 
   return (
     <section className="services-section">

@@ -161,8 +161,8 @@ body {
   // background: url("/src/assets/images/shatterlogoBlack.png") no-repeat center
   //   center;
   background-size: contain; // scales the image to fit
-  width: 100px;
-  height: auto;
+  width: rem(100);
+  height: rem(50);
 }
 .logo {
   display: inline-block;
