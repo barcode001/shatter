@@ -8,6 +8,11 @@ import { useState, useEffect } from "react";
 import Services from "./Services";
 import IphoneRepair from "./pages/IphoneRepair";
 import ScrollToTop from "./components/ScrollToTop";
+import AndroidRepair from "./pages/AndroidRepair";
+import IpadRepair from "./pages/IpadRepair";
+import LaptopRepair from "./pages/LaptopRepair";
+import ConsoleRepair from "./pages/ConsoleRepair";
+import OtherElectronics from "./pages/OtherElectronics";
 function App() {
   const [showNav, setShowNav] = useState(false);
 
@@ -22,6 +27,7 @@ function App() {
     <div className="layout">
       <Navbar visible={showNav} />
       <ScrollToTop />
+
       <main className="main-content">
         <Routes>
           <Route
@@ -34,14 +40,14 @@ function App() {
             }
           />
           <Route path="/services/iphone-repair" element={<IphoneRepair />} />
-          {/* <Route path="/services/android-repair" element={<AndroidRepair />} />
-        <Route path="/services/ipad-repair" element={<IpadRepair />} />
-        <Route path="/services/laptop-repair" element={<LaptopRepair />} />
-        <Route path="/services/console-repair" element={<ConsoleRepair />} />
-        <Route
-          path="/services/other-electronics"
-          element={<OtherElectronics />}
-        /> */}
+          <Route path="/services/android-repair" element={<AndroidRepair />} />
+          <Route path="/services/ipad-repair" element={<IpadRepair />} />
+          <Route path="/services/laptop-repair" element={<LaptopRepair />} />
+          <Route path="/services/console-repair" element={<ConsoleRepair />} />
+          <Route
+            path="/services/other-electronics"
+            element={<OtherElectronics />}
+          />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </main>

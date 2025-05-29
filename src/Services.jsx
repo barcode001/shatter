@@ -40,7 +40,7 @@ function Services() {
   }, []);
 
   return (
-    <section className="services-section">
+    <section className="services-section" id="services-section">
       <h2>Our Repair Services</h2>
       <div className="services-grid">
         {services.map((service, i) => (

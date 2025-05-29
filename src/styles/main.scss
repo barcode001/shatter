@@ -16,22 +16,26 @@
 @use "./components/footer";
 @use "./components/heroSlider";
 @use "./components/contact-form";
-@use "./components/servicePage";
+@use "./components/iphoneRepair";
+@use "./components/androidRepair";
+@use "./components/ipadRepair";
+@use "./components/laptopRepair";
+@use "./components//consoleRepair";
+@use "./components//otherElectronics";
 // main.scss
-
 $primary-color: #000000;
 
 body {
   // background: $primary-color;
   color: rgb(255, 255, 255);
   font-family: "Roboto", Arial, Helvetica, sans-serif;
-  height: 100vh;
 }
 
 .layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh; // fills full screen
+  overflow-x: hidden;
 }
 
 .main-content {

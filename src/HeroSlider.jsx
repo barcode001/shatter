@@ -5,6 +5,7 @@ import hero1 from "./assets/images/iphonehero.webp";
 import hero2 from "./assets/images/ipadhero1.webp";
 import hero3 from "./assets/images/laptopHero.webp";
 import hero4 from "./assets/images/gameshero.webp";
+
 const images = [
   {
     img: hero1,
@@ -14,7 +15,7 @@ const images = [
     subtitle: "Same-day repairs backed by a warranty",
     buttonText: "Get a Quote",
     buttonLink: "/contact",
-    learnMoreLink: "/iphone-repair",
+    learnMoreLink: "#services-section",
   },
   {
     img: hero2,
@@ -24,7 +25,7 @@ const images = [
     subtitle: "Cracked screen? We’ve got you covered.",
     buttonText: "Schedule Now",
     buttonLink: "/contact",
-    learnMoreLink: "/ipad-repair",
+    learnMoreLink: "#services-section",
   },
   {
     img: hero3,
@@ -34,7 +35,7 @@ const images = [
     subtitle: "Keyboard, screen, battery — we fix it all.",
     buttonText: "See Services",
     buttonLink: "/contact",
-    learnMoreLink: "/laptop-repair",
+    learnMoreLink: "#services-section",
   },
   {
     img: hero4,
@@ -44,7 +45,7 @@ const images = [
     subtitle: "PlayStation, Xbox, Switch — repairs done right.",
     buttonText: "Contact Us",
     buttonLink: "/contact",
-    learnMoreLink: "/gaming-console-repair",
+    learnMoreLink: "#services-section",
   },
 ];
 
@@ -71,7 +72,12 @@ function HeroSlider() {
     setAutoplay(false);
     setIndex(i);
   };
-
+  const scrollToServices = () => {
+    const el = document.getElementById("services-section");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   // useEffect(() => {
   //   images.forEach((img) => {
   //     const preload = new Image();
@@ -174,14 +180,9 @@ function HeroSlider() {
               <a href="tel:8328692809" className="call-now-btn">
                 📞 Call Now
               </a>
-              <Link
-                to={img.learnMoreLink}
-                className={`learn-more-link ${
-                  loaded && animatedSlides.includes(i) ? "animate" : ""
-                }`}
-              >
+              <button onClick={scrollToServices} className="learn-more-link">
                 Learn More
-              </Link>
+              </button>
             </div>
           </div>
         ))}

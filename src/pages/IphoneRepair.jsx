@@ -1,11 +1,13 @@
-// src/pages/IphoneRepair.jsx
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import iphoneService from "../assets/images/iphonService.webp";
-// import "./servicePage.scss"; // optional per-page styles
+import iphoneService from "../assets/images/iphonService.png";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 export default function IphoneRepair() {
+  useScrollReveal(); // Targets `.reveal` by default
+
   return (
-    <section className="service-page">
+    <section className="service-page iphone-page">
       <header className="service-header">
         <div className="floating-wrapper">
           <img
@@ -16,37 +18,39 @@ export default function IphoneRepair() {
           />
         </div>
 
-        <h1>Fast iPhone Repair in Houston</h1>
-        <p className="subtitle">
+        <h1 className="fade-up">Fast iPhone Repair in Houston</h1>
+        <p className="subtitle fade-up">
           Broken screen? Dead battery? We’ve got you covered – usually{" "}
           <strong>same-day</strong>.
         </p>
       </header>
 
       <div className="service-content">
-        <h2>Most common iPhone repairs</h2>
+        <h2 className="fade-up">Most common iPhone repairs</h2>
         <ul>
-          <li>Screen / glass replacement</li>
-          <li>Battery replacement</li>
-          <li>Charging-port repair</li>
-          <li>Back-glass replacement</li>
-          <li>Camera / speaker issues</li>
-          <li>Water damage diagnostics</li>
+          <li className="fade-up">Screen / glass replacement</li>
+          <li className="fade-up">Battery replacement</li>
+          <li className="fade-up">Charging-port repair</li>
+          <li className="fade-up">Back-glass replacement</li>
+          <li className="fade-up">Camera / speaker issues</li>
+          <li className="fade-up">Water damage diagnostics</li>
         </ul>
 
-        <h2>Why choose Shatter Repairs?</h2>
+        <h2 className="fade-up">Why choose Shatter Repairs?</h2>
         <ul>
-          <li>
+          <li className="fade-up">
             <strong>Same-day service</strong> on most jobs
           </li>
-          <li>
+          <li className="fade-up">
             <strong>Lifetime workmanship warranty</strong>
           </li>
-          <li>Premium OEM-grade parts</li>
-          <li>Trusted techs with over 10 years of hands-on experience.</li>
+          <li className="fade-up">Premium OEM-grade parts</li>
+          <li className="fade-up">
+            Trusted techs with over 10 years of hands-on experience.
+          </li>
         </ul>
 
-        <Link to="/contact" className="btn primary">
+        <Link to="/contact" className="btn primary fade-up">
           Get a Quote
         </Link>
       </div>

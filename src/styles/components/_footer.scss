@@ -12,13 +12,13 @@
 h2 {
   font-weight: 500;
   text-align: center;
-  font-size: var(--m);
+  font-size: rem(64);
   margin: 0;
 }
 
 h3 {
   font-weight: 500;
-  font-size: calc(0.6 * var(--m));
+  font-size: rem(38.4);
   margin: 0;
 }
 
@@ -30,7 +30,7 @@ footer {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: flex-end;
-  padding: 5rem 2vw;
+  padding: 1rem 2vw;
   position: relative;
   z-index: 200;
 
@@ -53,17 +53,20 @@ footer {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: calc(0.3 * var(--m)) calc(0.8 * var(--m));
+  // padding: rem(19.2) rem(51.2);
+  padding: rem(0) rem(51.2);
   width: 28%;
 }
 
 .col2,
 .col3 {
   background-color: #121212;
-  border-radius: calc(0.5 * var(--m));
+  border-radius: rem(32);
   background-color: rgba(189, 176, 176, 0.127);
 
-  // box-shadow: 1px 3px 6px #7f7d8237;
+  // @media (max-width: rem(700)) {
+
+  // }
 }
 
 img {
@@ -88,7 +91,7 @@ a {
   width: rem(50);
   height: rem(50);
   background-color: rgba(255, 255, 255, 0.1);
-  border-radius: calc(0.1 * var(--m));
+  border-radius: rem(6.4);
 
   display: flex;
   justify-content: center;
@@ -105,10 +108,11 @@ a {
   footer {
     flex-direction: column;
 
-    gap: 20px;
+    gap: 10px;
   }
   .col {
     width: 100%;
+    height: rem(150);
   }
 }
 

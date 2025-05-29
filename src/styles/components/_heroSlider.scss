@@ -225,6 +225,8 @@
   padding: rem(10);
   width: 100px;
   place-self: center;
+  background: none;
+  border: none;
 
   &:hover {
     color: rgb(3 113 227); // or any highlight color
