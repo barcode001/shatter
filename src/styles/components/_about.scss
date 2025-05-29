@@ -14,7 +14,7 @@
     text-align: center;
 
     h1 {
-      font-size: rem(48);
+      font-size: clamp(rem(47), 10vw, rem(64));
       background: linear-gradient(90deg, #f44369 0%, #3e3b92 100%);
       -webkit-background-clip: text;
       background-clip: text;
@@ -33,7 +33,7 @@
     margin-top: rem(48);
 
     h2 {
-      font-size: rem(32);
+      font-size: clamp(rem(47), 10vw, rem(54));
       margin-top: rem(32);
       margin-bottom: rem(12);
       background: linear-gradient(90deg, #f44369 0%, #3e3b92 100%);

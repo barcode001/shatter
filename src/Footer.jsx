@@ -2,6 +2,9 @@ import React from "react";
 import instagram from "./assets/images/instagram.png";
 import facebook from "./assets/images/facebook.png";
 import tiktok from "./assets/images/tiktok.png";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+
 function Footer() {
   return (
     <div className="container">
@@ -22,16 +25,21 @@ function Footer() {
           <p className="artist">2025 © All Rights Reserved</p>
         </div>
         <div className="col col2">
-          <p>About</p>
-          <p>Our mission</p>
-          <p>Privacy Policy</p>
-          <p>Terms of service</p>
-        </div>
-        <div className="col col3">
-          <p>Services</p>
-          <p>Products</p>
-          <p>Join our team</p>
-          <p>Partner with us</p>
+          <Link to="/">Home</Link>
+
+          <HashLink
+            to="/#services-section"
+            smooth
+            scroll={(el) => {
+              setTimeout(() => {
+                el.scrollIntoView({ behavior: "smooth" });
+              }, 100); // Delay 100ms to ensure the DOM is ready
+            }}
+          >
+            Services
+          </HashLink>
+          <Link to="/about">About</Link>
+          <Link to="/contact">Contact</Link>
         </div>
         <div className="backdrop"></div>
       </footer>

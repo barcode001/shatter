@@ -1,8 +1,13 @@
 import React from "react";
 import shatterlogo from "./assets/images/shatterLogoBlack.png";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 function Navbar({ visible }) {
+  const closeMobileMenu = () => {
+    const checkbox = document.getElementById("nav-check");
+    if (checkbox) checkbox.checked = false;
+  };
   return (
     <div className={`nav ${visible ? "visible" : "hidden"}`}>
       <input type="checkbox" id="nav-check" />
@@ -27,10 +32,29 @@ function Navbar({ visible }) {
       </div>
 
       <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/services">Services</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
+        <Link to="/" onClick={closeMobileMenu}>
+          Home
+        </Link>
+
+        <HashLink
+          to="/#services-section"
+          smooth
+          scroll={(el) => {
+            setTimeout(() => {
+              el.scrollIntoView({ behavior: "smooth" });
+            }, 100);
+          }}
+          onClick={closeMobileMenu}
+        >
+          Services
+        </HashLink>
+
+        <Link to="/about" onClick={closeMobileMenu}>
+          About
+        </Link>
+        <Link to="/contact" onClick={closeMobileMenu}>
+          Contact
+        </Link>
       </div>
     </div>
   );

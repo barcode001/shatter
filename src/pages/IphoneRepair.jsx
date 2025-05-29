@@ -50,7 +50,7 @@ export default function IphoneRepair() {
           </li>
         </ul>
 
-        <Link to="/contact" className="btn primary fade-up">
+        <Link to="/contact-form" className="btn primary fade-up">
           Get a Quote
         </Link>
       </div>

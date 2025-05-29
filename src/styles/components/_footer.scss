@@ -33,6 +33,7 @@ footer {
   padding: 1rem 2vw;
   position: relative;
   z-index: 200;
+  justify-content: center;
 
   // bottom: 0;
 }
@@ -58,15 +59,20 @@ footer {
   width: 28%;
 }
 
-.col2,
-.col3 {
+.col2 {
   background-color: #121212;
   border-radius: rem(32);
   background-color: rgba(189, 176, 176, 0.127);
-
-  // @media (max-width: rem(700)) {
-
-  // }
+  height: rem(150);
+  width: rem(1200);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: clamp(rem(10), 5vw, rem(100));
+  margin: 0;
+  padding: 0;
 }
 
 img {
@@ -112,7 +118,7 @@ a {
   }
   .col {
     width: 100%;
-    height: rem(150);
+    height: rem(110);
   }
 }
 
