@@ -14,7 +14,7 @@ const images = [
     title: "Fast Phone Repair in Houston — iPhone, iPad, Laptop & More",
     subtitle: "Same-day repairs backed by a warranty",
     buttonText: "Get a Quote",
-    buttonLink: "/contact",
+    buttonLink: "/contact-form",
     learnMoreLink: "#services-section",
   },
   {
@@ -33,8 +33,8 @@ const images = [
     alt: "Laptop Repair",
     title: "Laptop Repair Experts",
     subtitle: "Keyboard, screen, battery — we fix it all.",
-    buttonText: "See Services",
-    buttonLink: "/contact",
+    buttonText: "Get a Quote",
+    buttonLink: "/contact-form",
     learnMoreLink: "#services-section",
   },
   {

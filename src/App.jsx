@@ -13,6 +13,8 @@ import IpadRepair from "./pages/IpadRepair";
 import LaptopRepair from "./pages/LaptopRepair";
 import ConsoleRepair from "./pages/ConsoleRepair";
 import OtherElectronics from "./pages/OtherElectronics";
+import About from "./About";
+import ContactForm from "./ContactForm";
 function App() {
   const [showNav, setShowNav] = useState(false);
 
@@ -48,7 +50,9 @@ function App() {
             path="/services/other-electronics"
             element={<OtherElectronics />}
           />
+          <Route path="/about" element={<About />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/contact-form" element={<ContactForm />} />
         </Routes>
       </main>
       <Footer />

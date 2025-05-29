@@ -52,7 +52,7 @@
   .service-content {
     h2 {
       margin-top: 2rem;
-      font-size: rem(64);
+      font-size: clamp(rem(47), 10vw, rem(64));
       font-weight: 700;
 
       background: linear-gradient(

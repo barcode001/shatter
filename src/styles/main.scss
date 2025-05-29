@@ -20,8 +20,10 @@
 @use "./components/androidRepair";
 @use "./components/ipadRepair";
 @use "./components/laptopRepair";
-@use "./components//consoleRepair";
-@use "./components//otherElectronics";
+@use "./components/consoleRepair";
+@use "./components/otherElectronics";
+@use "./components/about";
+@use "./components/contactPage";
 // main.scss
 $primary-color: #000000;
 
