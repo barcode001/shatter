@@ -15,6 +15,7 @@ import ConsoleRepair from "./pages/ConsoleRepair";
 import OtherElectronics from "./pages/OtherElectronics";
 import About from "./About";
 import ContactForm from "./ContactForm";
+import ThankYou from "./ThankYou";
 function App() {
   const [showNav, setShowNav] = useState(false);
 
@@ -41,6 +42,7 @@ function App() {
               </>
             }
           />
+
           <Route path="/services/iphone-repair" element={<IphoneRepair />} />
           <Route path="/services/android-repair" element={<AndroidRepair />} />
           <Route path="/services/ipad-repair" element={<IpadRepair />} />
@@ -50,6 +52,7 @@ function App() {
             path="/services/other-electronics"
             element={<OtherElectronics />}
           />
+          <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/contact-form" element={<ContactForm />} />

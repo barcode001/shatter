@@ -12,13 +12,25 @@ function Footer() {
         <div className="col col1">
           <p className="artist">Designed by EdenCode</p>
           <div className="social">
-            <a href="#" target="_blank" className="link">
+            <a
+              href="https://www.instagram.com/shatterrepairs/"
+              target="_blank"
+              className="link"
+            >
               <img src={instagram} loading="lazy" alt="Instagram" />
             </a>
-            <a href="#" target="_blank" className="link">
+            <a
+              href="https://www.facebook.com/MobileShatterRepairs/"
+              target="_blank"
+              className="link"
+            >
               <img src={facebook} loading="lazy" alt="facebook" />
             </a>
-            <a href="#" target="_blank" className="link">
+            <a
+              href="https://www.tiktok.com/@shatter.repairs?is_from_webapp=1&sender_device=pc"
+              target="_blank"
+              className="link"
+            >
               <img src={tiktok} loading="lazy" alt="tiktok" />
             </a>
           </div>

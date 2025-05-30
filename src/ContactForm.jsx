@@ -2,13 +2,13 @@
 import React, { useState } from "react";
 import { categories, brands, models } from "./data/repairOptions";
 import { issues } from "./data/issues";
-// import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import emailjs from "emailjs-com";
 
 function ContactForm() {
   const [showSuccess, setShowSuccess] = useState(false);
   const navigate = useNavigate();
-  const [redirectPending, setRedirectPending] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,49 +27,27 @@ function ContactForm() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
 
-    if (!formData.email && !formData.phone) {
-      alert("Please provide either an email or phone number.");
-      return;
-    }
+    // EmailJS form submission
+    emailjs
+      .sendForm(
+        "service_miu6zvf",
+        "template_e9ao9zk",
+        e.target,
+        "_BndisdRudnhR6wxt"
+      )
+      .then(() => {
+        // window.location.href = "/shatter/thank-you";
+        navigate("/thank-you");
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        alert("Message failed to send.");
+      });
 
-    if (formData.email && !emailRegex.test(formData.email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
-
-    if (formData.phone && !phoneRegex.test(formData.phone)) {
-      alert("Please enter a valid phone number.");
-      return;
-    }
-
-    const finalModel =
-      formData.model === "Other" ? formData.customModel : formData.model;
-    const finalService =
-      formData.repairType === "Other"
-        ? formData.customService
-        : formData.repairType;
-
-    const submission = {
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone.replace(/\D/g, ""),
-      category: formData.category,
-      brand: formData.brand,
-      model: finalModel,
-      repairType: finalService,
-      message: formData.message,
-    };
-
-    console.log("📩 Submitted:", submission);
-    setShowSuccess(true);
-    setTimeout(() => setShowSuccess(false), 30000);
-
-    //  Reset the form after submit
+    // Reset form state
     setFormData({
       name: "",
       email: "",
@@ -82,31 +60,11 @@ function ContactForm() {
       customService: "",
       message: "",
     });
-
-    // useEffect(() => {
-    //   const timeout = setTimeout(() => {
-    //     document
-    //       .querySelectorAll(".form-group input, .form-group textarea")
-    //       .forEach((el) => {
-    //         if (el.value.trim()) {
-    //           el.parentElement.classList.add("has-value");
-    //         } else {
-    //           el.parentElement.classList.remove("has-value");
-    //         }
-    //       });
-    //   }, 500); // slight delay for Safari autofill to kick in
-
-    //   return () => clearTimeout(timeout);
-    // }, []);
-    setTimeout(() => {
-      setShowSuccess(false);
-      window.location.href = "/shatter/";
-    }, 300000);
   };
 
   return (
     <div className="form-wrapper">
-      <form onSubmit={handleSubmit} className="contact-form">
+      <form onSubmit={sendEmail} className="contact-form">
         <h2>Get a Quote</h2>
 
         <div className={`form-group ${formData.name ? "has-value" : ""}`}>

@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useSwipeable } from "react-swipeable";
 import { Link } from "react-router-dom";
-import hero1 from "./assets/images/iphonehero.webp";
+import hero1 from "./assets/images/iphonehero-2.webp";
+
 import hero2 from "./assets/images/ipadhero1.webp";
 import hero3 from "./assets/images/laptopHero.webp";
 import hero4 from "./assets/images/gameshero.webp";
@@ -78,15 +79,6 @@ function HeroSlider() {
       el.scrollIntoView({ behavior: "smooth" });
     }
   };
-  // useEffect(() => {
-  //   images.forEach((img) => {
-  //     const preload = new Image();
-  //     preload.src = new URL(
-  //       `/src/assets/images/${img.className}.jpg`,
-  //       import.meta.url
-  //     ).href;
-  //   });
-  // }, []);
 
   useEffect(() => {
     const timeout = setTimeout(() => setLoaded(true), 50);

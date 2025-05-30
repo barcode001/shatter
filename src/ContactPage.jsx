@@ -1,31 +1,43 @@
-// import ContactForm from "./ContactForm";
-
-// function ContactPage() {
-//   return (
-//     <div className="contact-page">
-//       {/* <h1>Contact Us</h1>
-//       <p>We'll get back to you shortly.</p> */}
-//       <ContactForm />
-//     </div>
-//   );
-// }
-
-// export default ContactPage;
-
 import { useEffect } from "react";
 import useScrollReveal from "./hooks/useScrollReveal";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import emailjs from "emailjs-com";
+import { useNavigate } from "react-router-dom";
 
 export default function ContactPage() {
   useScrollReveal(); // Animates `.fade-up` elements
-
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     message: "",
   });
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_miu6zvf",
+        "template_5r2u5zo",
+        e.target,
+        "_BndisdRudnhR6wxt"
+      )
+      .then(() => {
+        // alert("Message sent!");
+        // window.location.href = "/thank-you";
+        // const navigate = useNavigate();
+        // // inside your email send success callback:
+        navigate("/thank-you");
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        alert("Message failed to send.");
+      });
+
+    e.target.reset();
+  };
 
   function handleInputChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -63,11 +75,7 @@ export default function ContactPage() {
       </header>
 
       <div className="contact-form-wrapper fade-up">
-        <form
-          className="contact-form"
-          action="https://formspree.io/f/your-form-id" // Replace with real action or backend handler
-          method="POST"
-        >
+        <form className="contact-form" onSubmit={sendEmail}>
           <div className="form-group">
             <input
               type="text"
@@ -104,7 +112,7 @@ export default function ContactPage() {
               required
               className={formData.phone ? "has-value" : ""}
             />
-            <label htmlFor="name">Your Phone (Optional)</label>
+            <label htmlFor="phone">Your Phone (Optional)</label>
           </div>
 
           <div className="form-group">

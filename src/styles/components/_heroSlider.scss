@@ -167,17 +167,17 @@
     }
   }
 }
-.hero1,
-.hero2,
-.hero3,
-.hero4 {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  // background-color: #000; // prevents white flicker
-  background-color: none;
-  z-index: 0;
-}
+// .hero1,
+// .hero2,
+// .hero3,
+// .hero4 {
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center;
+//   // background-color: #000; // prevents white flicker
+//   background-color: none;
+//   z-index: 0;
+// }
 
 .slide-title.animate {
   transition-delay: 0.2s;
