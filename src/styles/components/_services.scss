@@ -1,0 +1,114 @@
+@use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.services-section {
+  padding: rem(60) rem(20);
+  background-color: #000000;
+  text-align: center;
+  content-visibility: auto;
+  h2 {
+    font-size: rem(36);
+    margin-bottom: rem(40);
+    color: rgb(255, 255, 255);
+  }
+
+  .services-grid {
+    display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(1, 1fr);
+    gap: rem(30);
+    @media (min-width: 600px) {
+      // Tablet: 2 cards per row
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 960px) {
+      // Desktop / MacBook Air: 3 cards per row
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (min-width: 2250px) {
+      // Desktops and large screens: 6 columns
+      // grid-template-columns: repeat(6, minmax(345px, 1fr));
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  .service-card {
+    // background: white;
+    border-radius: rem(15);
+    padding: rem(20);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    // background-color: hsl(30deg 0% 20%);
+    // background-color: rgba(0, 0, 0, 20%);
+    // border: solid;
+    // border-width: rem(1);
+    // border-color: hsl(30deg 0% 40%);
+
+    background: linear-gradient(
+      to top,
+      #34323277,
+      #121212,
+      #1e1e1e,
+      #2a2a2a,
+      #363636
+    );
+
+    align-items: stretch;
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    img {
+      width: 200px;
+      height: 225px;
+      margin-bottom: rem(15);
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+    &:hover img {
+      transform: scale(1.1); // ✅ This zooms the image on hover
+    }
+
+    h3 {
+      font-size: rem(22);
+      margin-bottom: rem(10);
+      color: black;
+      color: white;
+    }
+
+    p {
+      font-size: rem(16);
+      margin-bottom: rem(20);
+      color: black;
+      color: white;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: rem(10) rem(20);
+      background-color: $primary-color;
+      color: white;
+      border-radius: rem(8);
+      text-decoration: none;
+      font-weight: bold;
+
+      &:hover {
+        background-color: rgba(1, 1, 255, 0.683);
+      }
+    }
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

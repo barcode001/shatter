@@ -1,0 +1,46 @@
+// main.scss
+
+@use "./abstracts/variables" as *;
+@use "./abstracts/functions" as *;
+@use "./abstracts/mixins" as *;
+
+@use "./base/reset";
+@use "./base/globals";
+
+@use "./layout/header";
+@use "./layout/site-footer";
+@use "./layout/grid";
+
+@use "./components/navbar";
+@use "./components/services";
+@use "./components/footer";
+@use "./components/heroSlider";
+@use "./components/contact-form";
+@use "./components/iphoneRepair";
+@use "./components/androidRepair";
+@use "./components/ipadRepair";
+@use "./components/laptopRepair";
+@use "./components/consoleRepair";
+@use "./components/otherElectronics";
+@use "./components/about";
+@use "./components/contactPage";
+@use "./components/thankYou";
+// main.scss
+$primary-color: #000000;
+
+body {
+  // background: $primary-color;
+  color: rgb(255, 255, 255);
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // fills full screen
+  overflow-x: hidden;
+}
+
+.main-content {
+  flex: 1; // pushes footer to the bottom
+}
