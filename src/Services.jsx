@@ -13,7 +13,6 @@ function Services() {
       (entries) => {
         entries.forEach((entry) => {
           const index = serviceRefs.current.indexOf(entry.target);
-          console.log("isIntersecting:", entry.isIntersecting, "index:", index);
 
           if (entry.isIntersecting && !visible[index]) {
             setVisible((prev) => {
@@ -33,7 +32,7 @@ function Services() {
     );
 
     serviceRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
+      if (ref && ref instanceof Element) observer.observe(ref);
     });
 
     return () => observer.disconnect();

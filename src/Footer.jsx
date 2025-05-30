@@ -15,6 +15,7 @@ function Footer() {
             <a
               href="https://www.instagram.com/shatterrepairs/"
               target="_blank"
+              rel="noopener noreferrer"
               className="link"
             >
               <img src={instagram} loading="lazy" alt="Instagram" />
@@ -22,6 +23,7 @@ function Footer() {
             <a
               href="https://www.facebook.com/MobileShatterRepairs/"
               target="_blank"
+              rel="noopener noreferrer"
               className="link"
             >
               <img src={facebook} loading="lazy" alt="facebook" />
@@ -29,6 +31,7 @@ function Footer() {
             <a
               href="https://www.tiktok.com/@shatter.repairs?is_from_webapp=1&sender_device=pc"
               target="_blank"
+              rel="noopener noreferrer"
               className="link"
             >
               <img src={tiktok} loading="lazy" alt="tiktok" />
