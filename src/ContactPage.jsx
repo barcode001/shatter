@@ -1,19 +1,27 @@
-import { useEffect } from "react";
-import useScrollReveal from "./hooks/useScrollReveal";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import emailjs from "emailjs-com";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import useScrollReveal from "./hooks/useScrollReveal";
+import emailjs from "emailjs-com";
+import { logEvent } from "./ga";
+import { logPageView } from "./ga";
 
 export default function ContactPage() {
-  useScrollReveal(); // Animates `.fade-up` elements
+  useScrollReveal();
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    logPageView();
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     message: "",
   });
+
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -25,10 +33,7 @@ export default function ContactPage() {
         "_BndisdRudnhR6wxt"
       )
       .then(() => {
-        // alert("Message sent!");
-        // window.location.href = "/thank-you";
-        // const navigate = useNavigate();
-        // // inside your email send success callback:
+        logEvent("submit", "Form", "Contact Form Submitted");
         navigate("/thank-you");
       })
       .catch((error) => {
@@ -39,9 +44,9 @@ export default function ContactPage() {
     e.target.reset();
   };
 
-  function handleInputChange(e) {
+  const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
+  };
 
   return (
     <section className="contact-page">
@@ -67,6 +72,7 @@ export default function ContactPage() {
           <li>Sunday: 12:00 PM – 5:00 PM</li>
         </ul>
       </div>
+
       <header className="service-header">
         <h1 className="fade-up">Get in Touch</h1>
         <p className="subtitle fade-up">
@@ -99,7 +105,7 @@ export default function ContactPage() {
               required
               className={formData.email ? "has-value" : ""}
             />
-            <label htmlFor="email">email</label>
+            <label htmlFor="email">Email</label>
           </div>
 
           <div className="form-group">
@@ -126,6 +132,7 @@ export default function ContactPage() {
             ></textarea>
             <label htmlFor="message">Your Message</label>
           </div>
+
           <button type="submit" className="btn primary">
             Send Message
           </button>

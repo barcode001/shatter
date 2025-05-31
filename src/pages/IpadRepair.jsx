@@ -1,10 +1,11 @@
-// src/pages/IpadRepair.jsx
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import ipadService from "../assets/images/ipadServicePage.webp";
 import useScrollReveal from "../hooks/useScrollReveal";
+import { logEvent } from "../ga";
 
 export default function IpadRepair() {
-  useScrollReveal(); // Targets `.fade-up` by default
+  useScrollReveal();
 
   return (
     <section className="ipad-page">
@@ -49,7 +50,13 @@ export default function IpadRepair() {
           <li className="fade-up">Trusted by schools and businesses</li>
         </ul>
 
-        <Link to="/contact-form" className="btn primary fade-up">
+        <Link
+          to="/contact-form"
+          className="btn primary fade-up"
+          onClick={() =>
+            logEvent("click", "CTA", "Get a Quote - iPad Repair Page")
+          }
+        >
           Get a Quote
         </Link>
       </div>

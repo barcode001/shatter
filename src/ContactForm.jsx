@@ -1,9 +1,9 @@
-// ContactForm.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { categories, brands, models } from "./data/repairOptions";
 import { issues } from "./data/issues";
 import { useNavigate } from "react-router-dom";
 import emailjs from "emailjs-com";
+import { logEvent } from "./ga";
 
 function ContactForm() {
   const [showSuccess, setShowSuccess] = useState(false);
@@ -30,7 +30,6 @@ function ContactForm() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    // EmailJS form submission
     emailjs
       .sendForm(
         "service_miu6zvf",
@@ -39,7 +38,7 @@ function ContactForm() {
         "_BndisdRudnhR6wxt"
       )
       .then(() => {
-        // window.location.href = "/shatter/thank-you";
+        logEvent("submit", "Form", "Contact Form Submitted"); // ✅ GA tracking
         navigate("/thank-you");
       })
       .catch((error) => {
@@ -248,19 +247,6 @@ function ContactForm() {
 
         <button type="submit">Submit</button>
       </form>
-      {showSuccess && (
-        <div className="form-toast" role="status" aria-live="polite">
-          ✅ Thanks! Your request was submitted.
-          <br />
-          <button
-            onClick={() =>
-              (window.location.href = "https://barcode001.github.io/shatter/")
-            }
-          >
-            OK
-          </button>
-        </div>
-      )}
     </div>
   );
 }

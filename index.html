@@ -6,6 +6,7 @@
     <title>Shatter Repairs</title>
     <link rel="icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- Existing tags (keep these) -->
     <meta
       name="description"
       content="Fast and affordable iPhone, iPad, and laptop repair in Houston. Same-day service. Call now!"
@@ -16,13 +17,65 @@
       content="Same-day repair for iPhones, iPads, laptops & more."
     />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
+    <!-- ✅ Add these -->
+    <meta
+      name="keywords"
+      content="iPhone repair, iPad repair, laptop repair, phone repair Houston, same-day repair, screen replacement"
     />
+    <meta name="author" content="Shatter Repairs" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://shatterrepairs.com/" />
+    <meta
+      property="og:image"
+      content="https://shatterrepairs.com/preview.jpg"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shatter Repairs | Houston" />
+    <meta
+      name="twitter:description"
+      content="Same-day repair for iPhones, iPads, laptops & more."
+    />
+    <meta
+      name="twitter:image"
+      content="https://shatterrepairs.com/preview.jpg"
+    />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Roboto:..."
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:..."
+    /></noscript>
   </head>
   <body>
     <div id="root"></div>
+
     <!-- Vite injects scripts and CSS here automatically -->
+    <script type="module" src="/src/main.jsx"></script>
+    <!-- Google Analytics (deferred load for performance) -->
+    <script>
+      window.addEventListener("load", function () {
+        const gtagScript = document.createElement("script");
+        gtagScript.src =
+          "https://www.googletagmanager.com/gtag/js?id=G-YF8MBEM045";
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+
+        gtagScript.onload = () => {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag("js", new Date());
+          gtag("config", "G-YF8MBEM045");
+        };
+      });
+    </script>
   </body>
 </html>

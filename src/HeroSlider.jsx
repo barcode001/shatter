@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import { useSwipeable } from "react-swipeable";
 import { Link } from "react-router-dom";
 import hero1 from "./assets/images/iphonehero-2.webp";
-
 import hero2 from "./assets/images/ipadhero1.webp";
 import hero3 from "./assets/images/laptopHero.webp";
 import hero4 from "./assets/images/gameshero.webp";
+import { logEvent } from "./ga"; // make sure this path is correct
 
 const images = [
   {
@@ -166,13 +166,31 @@ function HeroSlider() {
                 {img.subtitle}
               </p>
 
-              <Link to={img.buttonLink} className="slide-button">
+              <Link
+                to={img.buttonLink}
+                className="slide-button"
+                onClick={() =>
+                  logEvent("Hero", "Click", `${img.buttonText} Button`)
+                }
+              >
                 {img.buttonText}
               </Link>
-              <a href="tel:8328692809" className="call-now-btn">
+
+              <a
+                href="tel:8328692809"
+                className="call-now-btn"
+                onClick={() => logEvent("Hero", "Click", "Call Now Button")}
+              >
                 📞 Call Now
               </a>
-              <button onClick={scrollToServices} className="learn-more-link">
+
+              <button
+                onClick={() => {
+                  scrollToServices();
+                  logEvent("Hero", "Click", "Learn More Button");
+                }}
+                className="learn-more-link"
+              >
                 Learn More
               </button>
             </div>
@@ -180,10 +198,23 @@ function HeroSlider() {
         ))}
       </div>
 
-      <button className="prev" onClick={prevSlide}>
+      <button
+        className="prev"
+        onClick={() => {
+          prevSlide();
+          logEvent("Hero Slider", "Click", "Previous Slide");
+        }}
+      >
         ‹
       </button>
-      <button className="next" onClick={nextSlide}>
+
+      <button
+        className="next"
+        onClick={() => {
+          nextSlide();
+          logEvent("Hero Slider", "Click", "Next Slide");
+        }}
+      >
         ›
       </button>
 

@@ -87,12 +87,16 @@
 
     .btn {
       display: inline-block;
-      padding: rem(10) rem(20);
+
       background-color: $primary-color;
       color: white;
       border-radius: rem(8);
       text-decoration: none;
       font-weight: bold;
+      min-width: 160px;
+      text-align: center;
+      padding: rem(12) rem(20); // equivalent to 0.75rem 1.25rem
+      white-space: nowrap;
 
       &:hover {
         background-color: rgba(1, 1, 255, 0.683);

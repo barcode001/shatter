@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import HeroSlider from "./HeroSlider";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -16,8 +16,19 @@ import OtherElectronics from "./pages/OtherElectronics";
 import About from "./About";
 import ContactForm from "./ContactForm";
 import ThankYou from "./ThankYou";
+import { initGA, logPageView } from "./ga";
+
 function App() {
   const [showNav, setShowNav] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    initGA(); // Initialize GA on first render
+  }, []);
+
+  useEffect(() => {
+    logPageView(); // Log page views on route change
+  }, [location]);
 
   useEffect(() => {
     const timer = setTimeout(() => {

@@ -2,18 +2,25 @@ import React from "react";
 import shatterlogo from "./assets/images/shatterLogoBlack.png";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { logEvent } from "./ga"; // make sure this path is correct
 
 function Navbar({ visible }) {
   const closeMobileMenu = () => {
     const checkbox = document.getElementById("nav-check");
     if (checkbox) checkbox.checked = false;
   };
+
+  const track = (label) => {
+    logEvent("nav_click", { label });
+    closeMobileMenu();
+  };
+
   return (
     <div className={`nav ${visible ? "visible" : "hidden"}`}>
       <input type="checkbox" id="nav-check" />
 
       <div className="nav-header">
-        <Link to="/" className="logo">
+        <Link to="/" className="logo" onClick={() => track("Logo")}>
           <img
             src={shatterlogo}
             alt="Shatterlogo"
@@ -32,7 +39,7 @@ function Navbar({ visible }) {
       </div>
 
       <div className="nav-links">
-        <Link to="/" onClick={closeMobileMenu}>
+        <Link to="/" onClick={() => track("Home")}>
           Home
         </Link>
 
@@ -44,15 +51,16 @@ function Navbar({ visible }) {
               el.scrollIntoView({ behavior: "smooth" });
             }, 100);
           }}
-          onClick={closeMobileMenu}
+          onClick={() => track("Services")}
         >
           Services
         </HashLink>
 
-        <Link to="/about" onClick={closeMobileMenu}>
+        <Link to="/about" onClick={() => track("About")}>
           About
         </Link>
-        <Link to="/contact" onClick={closeMobileMenu}>
+
+        <Link to="/contact" onClick={() => track("Contact")}>
           Contact
         </Link>
       </div>

@@ -1,9 +1,11 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import consoleService from "../assets/images/consoleServicePage.png";
 import useScrollReveal from "../hooks/useScrollReveal";
+import { logEvent } from "../ga";
 
 export default function ConsoleRepair() {
-  useScrollReveal(); // Triggers fade-up animations
+  useScrollReveal();
 
   return (
     <section className="console-page">
@@ -47,7 +49,13 @@ export default function ConsoleRepair() {
           <li className="fade-up">Friendly local service you can trust</li>
         </ul>
 
-        <Link to="/contact-form" className="btn primary fade-up">
+        <Link
+          to="/contact-form"
+          className="btn primary fade-up"
+          onClick={() =>
+            logEvent("click", "CTA", "Get a Quote - Console Repair Page")
+          }
+        >
           Get a Quote
         </Link>
       </div>

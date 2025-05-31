@@ -1,9 +1,11 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import laptopService from "../assets/images/laptopServicePage1.png"; // replace with your image
+import laptopService from "../assets/images/laptopServicePage1.png";
 import useScrollReveal from "../hooks/useScrollReveal";
+import { logEvent } from "../ga";
 
 export default function LaptopRepair() {
-  useScrollReveal(); // Targets `.fade-up` by default
+  useScrollReveal();
 
   return (
     <section className="laptop-page">
@@ -53,7 +55,13 @@ export default function LaptopRepair() {
           </li>
         </ul>
 
-        <Link to="/contact-form" className="btn primary fade-up">
+        <Link
+          to="/contact-form"
+          className="btn primary fade-up"
+          onClick={() =>
+            logEvent("Click", "Clicked Get a Quote on Laptop Repair")
+          }
+        >
           Get a Quote
         </Link>
       </div>

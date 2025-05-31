@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import services from "./data/services";
+import { logEvent } from "./ga"; // make sure this path is correct
 
 function Services() {
   const serviceRefs = useRef([]);
@@ -55,8 +56,14 @@ function Services() {
             />
             <h3>{service.title}</h3>
             <p>{service.description}</p>
-            <Link to={service.link} className="btn">
-              Learn More
+            <Link
+              to={service.link}
+              className="btn"
+              onClick={() =>
+                logEvent("Services", "Click Service", service.title)
+              }
+            >
+              {service.title}
             </Link>
           </div>
         ))}

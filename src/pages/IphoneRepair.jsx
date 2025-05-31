@@ -2,9 +2,10 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import iphoneService from "../assets/images/iphonService.png";
 import useScrollReveal from "../hooks/useScrollReveal";
+import { logEvent } from "../ga";
 
 export default function IphoneRepair() {
-  useScrollReveal(); // Targets `.reveal` by default
+  useScrollReveal();
 
   return (
     <section className="service-page iphone-page">
@@ -50,7 +51,13 @@ export default function IphoneRepair() {
           </li>
         </ul>
 
-        <Link to="/contact-form" className="btn primary fade-up">
+        <Link
+          to="/contact-form"
+          className="btn primary fade-up"
+          onClick={() =>
+            logEvent("click", "CTA", "Get a Quote - iPhone Repair Page")
+          }
+        >
           Get a Quote
         </Link>
       </div>

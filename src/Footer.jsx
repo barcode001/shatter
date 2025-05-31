@@ -4,6 +4,7 @@ import facebook from "./assets/images/facebook.png";
 import tiktok from "./assets/images/tiktok.png";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { logEvent } from "./ga"; // Make sure this path is correct
 
 function Footer() {
   return (
@@ -17,6 +18,7 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="link"
+              onClick={() => logEvent("click", "Social", "Instagram Footer")}
             >
               <img src={instagram} loading="lazy" alt="Instagram" />
             </a>
@@ -25,39 +27,59 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="link"
+              onClick={() => logEvent("click", "Social", "Facebook Footer")}
             >
-              <img src={facebook} loading="lazy" alt="facebook" />
+              <img src={facebook} loading="lazy" alt="Facebook" />
             </a>
             <a
               href="https://www.tiktok.com/@shatter.repairs?is_from_webapp=1&sender_device=pc"
               target="_blank"
               rel="noopener noreferrer"
               className="link"
+              onClick={() => logEvent("click", "Social", "TikTok Footer")}
             >
-              <img src={tiktok} loading="lazy" alt="tiktok" />
+              <img src={tiktok} loading="lazy" alt="TikTok" />
             </a>
           </div>
           <p className="artist">2025 © All Rights Reserved</p>
         </div>
-        <div className="col col2">
-          <Link to="/">Home</Link>
 
+        <div className="col col2">
+          <Link
+            to="/"
+            onClick={() => logEvent("click", "Navigation", "Home Footer")}
+          >
+            Home
+          </Link>
           <HashLink
             to="/#services-section"
             smooth
             scroll={(el) => {
               setTimeout(() => {
                 el.scrollIntoView({ behavior: "smooth" });
-              }, 100); // Delay 100ms to ensure the DOM is ready
+              }, 100);
             }}
+            onClick={() => logEvent("click", "Navigation", "Services Footer")}
           >
             Services
           </HashLink>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
+          <Link
+            to="/about"
+            onClick={() => logEvent("click", "Navigation", "About Footer")}
+          >
+            About
+          </Link>
+          <Link
+            to="/contact"
+            onClick={() => logEvent("click", "Navigation", "Contact Footer")}
+          >
+            Contact
+          </Link>
         </div>
+
         <div className="backdrop"></div>
       </footer>
+
       {/* Glowing lights */}
       <div>
         <article id="wrap">

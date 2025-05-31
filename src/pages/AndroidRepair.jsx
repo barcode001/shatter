@@ -1,13 +1,14 @@
-// src/pages/AndroidRepair.jsx
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import androidService from "../assets/images/androidServicePage1.webp";
 import useScrollReveal from "../hooks/useScrollReveal";
+import { logEvent } from "../ga";
 
 export default function AndroidRepair() {
-  useScrollReveal(); // Targets `.fade-up` by default
+  useScrollReveal();
 
   return (
-    <section className=" android-page">
+    <section className="android-page">
       <header className="service-header">
         <div className="floating-wrapper">
           <img
@@ -52,7 +53,13 @@ export default function AndroidRepair() {
           </li>
         </ul>
 
-        <Link to="/contact-form" className="btn primary fade-up">
+        <Link
+          to="/contact-form"
+          className="btn primary fade-up"
+          onClick={() =>
+            logEvent("click", "CTA", "Get a Quote - Android Repair Page")
+          }
+        >
           Get a Quote
         </Link>
       </div>

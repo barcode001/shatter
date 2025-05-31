@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import otherElectronicsImg from "../assets/images/otherElectronicsService2.png"; // replace with your image
 import useScrollReveal from "../hooks/useScrollReveal";
+import { logEvent } from "../ga";
 
 export default function OtherElectronics() {
   useScrollReveal(); // Targets `.fade-up` by default
@@ -53,7 +54,13 @@ export default function OtherElectronics() {
           </li>
         </ul>
 
-        <Link to="/contact-form" className="btn primary fade-up">
+        <Link
+          to="/contact-form"
+          className="btn primary fade-up"
+          onClick={() =>
+            logEvent("Click", "Clicked Get a Quote on Other Electronics")
+          }
+        >
           Get a Quote
         </Link>
       </div>
