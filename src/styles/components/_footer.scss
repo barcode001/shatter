@@ -397,3 +397,14 @@ section {
     -moz-box-shadow: 0 0 100px 15px #d96f65;
   }
 }
+
+.designer-link {
+  color: inherit;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: hsl(184, 76%, 35%);
+  }
+}

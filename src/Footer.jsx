@@ -11,7 +11,17 @@ function Footer() {
     <div className="container">
       <footer id="footer">
         <div className="col col1">
-          <p className="artist">Designed by EdenCode</p>
+          <span className="designer">
+            Designed by{" "}
+            <a
+              href="https://theedenscode.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="designer-link"
+            >
+              EdensCode
+            </a>
+          </span>
           <div className="social">
             <a
               href="https://www.instagram.com/shatterrepairs/"
