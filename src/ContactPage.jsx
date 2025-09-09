@@ -59,7 +59,7 @@ export default function ContactPage() {
 
       <div className="contact-info fade-up">
         <p>
-          <strong>Phone:</strong> <a href="tel:8328692809">(832) 869-2809</a>
+          <strong>Phone:</strong> <a href="tel:3465260160">(346) 526-0160</a>
         </p>
         <p>
           <strong>Address:</strong> 12315 Westheimer Rd D1, Houston, TX 77077

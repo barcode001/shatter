@@ -177,7 +177,7 @@ function HeroSlider() {
               </Link>
 
               <a
-                href="tel:8328692809"
+                href="tel:3465260160"
                 className="call-now-btn"
                 onClick={() => logEvent("Hero", "Click", "Call Now Button")}
               >
