@@ -5,32 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shatter Repairs</title>
     <link rel="icon" href="/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <!-- Existing tags (keep these) -->
+
+    <!-- SEO -->
     <meta
       name="description"
       content="Fast and affordable iPhone, iPad, and laptop repair in Houston. Same-day service. Call now!"
     />
-    <meta property="og:title" content="Shatter Repairs | Houston" />
-    <meta
-      property="og:description"
-      content="Same-day repair for iPhones, iPads, laptops & more."
-    />
-
-    <!-- ✅ Add these -->
     <meta
       name="keywords"
       content="iPhone repair, iPad repair, laptop repair, phone repair Houston, same-day repair, screen replacement"
     />
     <meta name="author" content="Shatter Repairs" />
     <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:title" content="Shatter Repairs | Houston" />
+    <meta
+      property="og:description"
+      content="Same-day repair for iPhones, iPads, laptops & more."
+    />
     <meta property="og:url" content="https://shatterrepairs.com/" />
     <meta
       property="og:image"
       content="https://shatterrepairs.com/preview.jpg"
     />
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Shatter Repairs | Houston" />
     <meta
@@ -41,23 +42,21 @@
       name="twitter:image"
       content="https://shatterrepairs.com/preview.jpg"
     />
+
+    <!-- Fonts: Preconnect + stylesheet (no preload) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Roboto:..."
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
     />
-    <noscript
-      ><link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Roboto:..."
-    /></noscript>
   </head>
   <body>
     <div id="root"></div>
 
     <!-- Vite injects scripts and CSS here automatically -->
     <script type="module" src="/src/main.jsx"></script>
+
     <!-- Google Analytics (deferred load for performance) -->
     <script>
       window.addEventListener("load", function () {

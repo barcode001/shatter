@@ -28,10 +28,13 @@
 // main.scss
 $primary-color: #000000;
 
+/* e.g., src/styles/global.css */
+:root,
+html,
 body {
-  // background: $primary-color;
+  font-family: "Roboto", system-ui, -apple-system, Segoe UI, "Helvetica Neue",
+    Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
   color: rgb(255, 255, 255);
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
 .layout {
