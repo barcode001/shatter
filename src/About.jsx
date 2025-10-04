@@ -12,7 +12,7 @@ export default function About() {
         <title>About Shatter Repairs | Houston Cell Phone Repair Experts</title>
         <meta
           name="description"
-          content="Learn about Shatter Repairs, Houston’s trusted cell phone and electronics repair shop. With over 20 years of combined experience, we deliver quality, honesty, and fast repairs."
+          content="Fast iPhone, iPad, laptop & electronics repair in Houston. Shatter Repairs brings 20+ years of trusted experience with honest, reliable service."
         />
         <meta
           name="keywords"

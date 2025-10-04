@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { categories, brands, models } from "./data/repairOptions";
 import { issues } from "./data/issues";
 import { useNavigate } from "react-router-dom";
@@ -30,6 +30,12 @@ function ContactForm() {
   const sendEmail = (e) => {
     e.preventDefault();
 
+    // ✅ Require at least email OR phone
+    if (!formData.email && !formData.phone) {
+      alert("Please provide either an email or phone number.");
+      return;
+    }
+
     emailjs
       .sendForm(
         "service_miu6zvf",
@@ -38,15 +44,18 @@ function ContactForm() {
         "_BndisdRudnhR6wxt"
       )
       .then(() => {
-        logEvent("submit", "Form", "Contact Form Submitted"); // ✅ GA tracking
-        navigate("/thank-you");
+        logEvent("submit", "Form", "Contact Form Submitted");
+
+        // ✅ Show success then redirect
+        setShowSuccess(true);
+        setTimeout(() => navigate("/thank-you"), 2000);
       })
       .catch((error) => {
         console.error("EmailJS Error:", error);
         alert("Message failed to send.");
       });
 
-    // Reset form state
+    // ✅ Reset form after submit
     setFormData({
       name: "",
       email: "",
@@ -66,9 +75,11 @@ function ContactForm() {
       <form onSubmit={sendEmail} className="contact-form">
         <h2>Get a Quote</h2>
 
+        {/* Name */}
         <div className={`form-group ${formData.name ? "has-value" : ""}`}>
           <input
             type="text"
+            id="name"
             name="name"
             value={formData.name}
             onChange={handleChange}
@@ -77,9 +88,11 @@ function ContactForm() {
           <label htmlFor="name">Name*</label>
         </div>
 
+        {/* Email */}
         <div className={`form-group ${formData.email ? "has-value" : ""}`}>
           <input
             type="email"
+            id="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
@@ -88,21 +101,25 @@ function ContactForm() {
           <label htmlFor="email">Email</label>
         </div>
 
+        {/* Phone */}
         <div className={`form-group ${formData.phone ? "has-value" : ""}`}>
           <input
             type="tel"
+            id="phone"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            inputMode="numeric"
-            pattern="[0-9]*"
-            placeholder="1234567890"
+            placeholder="7132317205"
+            pattern="[0-9]{10}"
+            title="Enter a 10-digit phone number"
           />
           <label htmlFor="phone">Phone</label>
         </div>
 
+        {/* Category */}
         <div className={`form-group ${formData.category ? "has-value" : ""}`}>
           <select
+            id="category"
             name="category"
             value={formData.category}
             onChange={(e) => {
@@ -128,9 +145,11 @@ function ContactForm() {
           <label htmlFor="category">Category*</label>
         </div>
 
+        {/* Brand */}
         {formData.category && (
           <div className={`form-group ${formData.brand ? "has-value" : ""}`}>
             <select
+              id="brand"
               name="brand"
               value={formData.brand}
               onChange={(e) => {
@@ -154,10 +173,12 @@ function ContactForm() {
           </div>
         )}
 
+        {/* Model */}
         {formData.brand && (
           <>
             <div className={`form-group ${formData.model ? "has-value" : ""}`}>
               <select
+                id="model"
                 name="model"
                 value={formData.model}
                 onChange={handleChange}
@@ -169,9 +190,10 @@ function ContactForm() {
                     {m}
                   </option>
                 ))}
-                {!models[formData.brand]?.includes("Other") && (
-                  <option value="Other">Other</option>
-                )}
+                {/* ✅ Ensure "Other" always available */}
+                {!models[formData.category]?.[formData.brand]?.includes(
+                  "Other"
+                ) && <option value="Other">Other</option>}
               </select>
               <label htmlFor="model">Model*</label>
             </div>
@@ -184,6 +206,7 @@ function ContactForm() {
               >
                 <input
                   type="text"
+                  id="customModel"
                   name="customModel"
                   value={formData.customModel}
                   onChange={handleChange}
@@ -196,8 +219,10 @@ function ContactForm() {
           </>
         )}
 
+        {/* Repair Type */}
         <div className={`form-group ${formData.repairType ? "has-value" : ""}`}>
           <select
+            id="repairType"
             name="repairType"
             value={formData.repairType}
             onChange={handleChange}
@@ -224,6 +249,7 @@ function ContactForm() {
           >
             <input
               type="text"
+              id="customService"
               name="customService"
               value={formData.customService}
               onChange={handleChange}
@@ -234,8 +260,10 @@ function ContactForm() {
           </div>
         )}
 
+        {/* Message */}
         <div className={`form-group ${formData.message ? "has-value" : ""}`}>
           <textarea
+            id="message"
             name="message"
             value={formData.message}
             onChange={handleChange}
@@ -246,6 +274,13 @@ function ContactForm() {
         </div>
 
         <button type="submit">Submit</button>
+
+        {/* ✅ Success message */}
+        {showSuccess && (
+          <p className="success-message" aria-live="polite">
+            ✅ Message sent! Redirecting...
+          </p>
+        )}
       </form>
     </div>
   );
