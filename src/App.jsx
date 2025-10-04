@@ -1,11 +1,11 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import HeroSlider from "./HeroSlider";
+
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ContactPage from "./ContactPage"; // create this page
 import "./styles/main.scss";
 import { useState, useEffect } from "react";
-import Services from "./Services";
+
 import IphoneRepair from "./pages/IphoneRepair";
 import ScrollToTop from "./components/ScrollToTop";
 import AndroidRepair from "./pages/AndroidRepair";
@@ -17,6 +17,7 @@ import About from "./About";
 import ContactForm from "./ContactForm";
 import ThankYou from "./ThankYou";
 import { initGA, logPageView } from "./ga";
+import Home from "./pages/Home";
 
 function App() {
   const [showNav, setShowNav] = useState(false);
@@ -44,15 +45,7 @@ function App() {
 
       <main className="main-content">
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <HeroSlider />
-                <Services />
-              </>
-            }
-          />
+          <Route path="/" element={<Home />} />
 
           <Route path="/services/iphone-repair" element={<IphoneRepair />} />
           <Route path="/services/android-repair" element={<AndroidRepair />} />
