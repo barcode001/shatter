@@ -63,12 +63,6 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Thank You -->
-  <url>
-    <loc>https://shatterrepairs.com/thank-you</loc>
-    <lastmod>2025-10-03T00:00:00+00:00</lastmod>
-    <priority>0.5</priority>
-  </url>
 
   <!-- Contact Form (internal) -->
   <url>
