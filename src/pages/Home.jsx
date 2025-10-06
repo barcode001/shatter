@@ -63,7 +63,7 @@ export default function Home() {
             "name": "Shatter Repairs",
             "description": "Fast and affordable iPhone, iPad, laptop, and cell phone repair in Houston. Same-day service available.",
             "url": "https://shatterrepairs.com",
-            "logo": "https://shatterrepairs.com/favicon-96x96.png",
+            "logo": "https://shatterrepairs.com/logo.png",
             "image": "https://shatterrepairs.com/preview.png",
             "telephone": "+1-713-231-7205",
             "address": {
